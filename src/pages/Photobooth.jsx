@@ -24,6 +24,7 @@ function Photobooth() {
   const [selectedFilter, setSelectedFilter] = useState('none')
   const [filterIntensity, setFilterIntensity] = useState(100)
   const [cameraOn, setCameraOn] = useState(true)
+  const [facingMode, setFacingMode] = useState('user')
   const [stripConfig, setStripConfig] = useState({
     borderColor: '#ffffff',
     borderStyle: 'polaroid',
@@ -133,11 +134,12 @@ function Photobooth() {
           <div className="lg:col-span-2 order-1">
             <div className="relative aspect-[4/3] sm:aspect-video max-w-xl mx-auto">
               <CameraView
-                key={selectedFilter}
+                key={selectedFilter + facingMode}
                 ref={cameraRef}
                 filter={currentFilter?.css || 'none'}
                 filterIntensity={filterIntensity}
                 cameraOn={cameraOn}
+                facingMode={facingMode}
               />
 
               {showFlash && (
@@ -198,6 +200,8 @@ function Photobooth() {
                 progress={progress}
                 cameraOn={cameraOn}
                 onCameraToggle={handleCameraToggle}
+                facingMode={facingMode}
+                onFlipCamera={() => setFacingMode(facingMode === 'user' ? 'environment' : 'user')}
               />
             </div>
           </div>

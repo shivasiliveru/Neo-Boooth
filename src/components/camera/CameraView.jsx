@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useImperativeHandle, forwardRef } from 'react'
 
-function CameraView({ filter, filterIntensity, cameraOn, onCameraReady }, ref) {
+function CameraView({ filter, filterIntensity, cameraOn, onCameraReady, facingMode = 'user' }, ref) {
   const localVideoRef = useRef(null)
   const canvasRef = useRef(null)
   const [isReady, setIsReady] = useState(false)
@@ -43,7 +43,7 @@ function CameraView({ filter, filterIntensity, cameraOn, onCameraReady }, ref) {
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: 'user' }
+        video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode }
       })
       video.srcObject = stream
       await video.play()
@@ -73,7 +73,7 @@ function CameraView({ filter, filterIntensity, cameraOn, onCameraReady }, ref) {
     const startCamera = async () => {
       try {
         stream = await navigator.mediaDevices.getUserMedia({
-          video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: 'user' }
+          video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode }
         })
         video.srcObject = stream
         await video.play()

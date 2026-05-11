@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import CaptureButton from '../captureButton/CaptureButton'
 
-function CameraControls({ layout, setLayout, onCapture, canCapture, isCountingDown, onToggleFilters, showFilters, progress, cameraOn, onCameraToggle }) {
+function CameraControls({ layout, setLayout, onCapture, canCapture, isCountingDown, onToggleFilters, showFilters, progress, cameraOn, onCameraToggle, facingMode, onFlipCamera }) {
   const layouts = [
     { value: 2, label: '2' },
     { value: 3, label: '3' },
@@ -44,6 +44,16 @@ function CameraControls({ layout, setLayout, onCapture, canCapture, isCountingDo
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
             </svg>
           )}
+        </button>
+
+        <button
+          onClick={onFlipCamera}
+          className="lg:hidden p-3 sm:p-4 rounded-full glass text-gray-500 hover:text-rose hover:bg-pink-50 transition-all"
+          title="Flip Camera"
+        >
+          <svg className="w-5 sm:w-6 h-5 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
         </button>
 
         <div className="flex items-center gap-1 sm:gap-2 glass rounded-full p-1.5 sm:p-2">
