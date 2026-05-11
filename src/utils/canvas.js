@@ -22,6 +22,9 @@ export async function generateStrip(photos, config) {
     canvas.height = totalHeight
     const ctx = canvas.getContext('2d')
 
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
     const imgPromises = photos.map((photoData, index) => {
       return new Promise((res) => {
         const img = new Image()
