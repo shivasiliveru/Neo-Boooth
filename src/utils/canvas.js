@@ -6,7 +6,7 @@ export async function generateStrip(photos, config) {
 
     const photoWidth = 800
     const photoHeight = 800
-    const padding = 0
+    const padding = 20
 
     let totalHeight = 0
     let borderBottom = 0
