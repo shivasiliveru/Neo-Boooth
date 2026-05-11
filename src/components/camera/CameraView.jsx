@@ -73,7 +73,7 @@ function CameraView({ filter, filterIntensity, cameraOn, onCameraReady, facingMo
     const startCamera = async () => {
       try {
         stream = await navigator.mediaDevices.getUserMedia({
-          video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode }
+video: { width: { ideal: 1920 }, height: { ideal: 1080 }, facingMode }
         })
         video.srcObject = stream
         await video.play()
