@@ -84,7 +84,7 @@ function StripPreview({ stripImage, onDownload, onEdit, onNewSession, onCustomiz
               ref={imageRef}
               src={stripImage}
               alt="Generated strip"
-              className="w-full rounded-lg"
+              className="max-w-[235px] w-full h-auto rounded-lg"
               draggable={false}
             />
             
