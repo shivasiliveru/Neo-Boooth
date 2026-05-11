@@ -6,7 +6,7 @@ export async function generateStrip(photos, config) {
 
     const photoWidth = 235
     const photoHeight = 235
-    const padding = 20
+    const padding = 0
 
     let totalHeight = 0
     let borderBottom = 0
@@ -21,12 +21,6 @@ export async function generateStrip(photos, config) {
     canvas.width = photoWidth + padding * 2
     canvas.height = totalHeight
     const ctx = canvas.getContext('2d')
-
-    ctx.fillStyle = '#000000'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-    ctx.fillStyle = '#1a1a1a'
-    ctx.fillRect(0, 0, canvas.width, totalHeight)
 
     const imgPromises = photos.map((photoData, index) => {
       return new Promise((res) => {
