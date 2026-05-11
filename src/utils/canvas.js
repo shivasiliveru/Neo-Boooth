@@ -4,8 +4,8 @@ export async function generateStrip(photos, config) {
   return new Promise((resolve) => {
     const { layout, borderColor, borderStyle, showDate, filter, filterIntensity, sticker, customText, placedStickers, textColor, textFont } = config
 
-    const photoWidth = 400
-    const photoHeight = 300
+    const photoWidth = 235
+    const photoHeight = 235
     const padding = 20
 
     let totalHeight = 0
