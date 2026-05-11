@@ -61,7 +61,18 @@ function Photobooth() {
 
     const canvas = cameraRef.current?.getCanvas()
     if (canvas && canvas.width > 0 && canvas.height > 0) {
-      const dataUrl = canvas.toDataURL('image/jpeg', 0.9)
+      const captureCanvas = document.createElement('canvas')
+      captureCanvas.width = 400
+      captureCanvas.height = 400
+      const ctx = captureCanvas.getContext('2d')
+      
+      const minDim = Math.min(canvas.width, canvas.height)
+      const sx = (canvas.width - minDim) / 2
+      const sy = (canvas.height - minDim) / 2
+      
+      ctx.drawImage(canvas, sx, sy, minDim, minDim, 0, 0, 400, 400)
+      
+      const dataUrl = captureCanvas.toDataURL('image/jpeg', 1.0)
       setPhotos(prev => [...prev, dataUrl])
       setCurrentPhotoIndex(prev => prev + 1)
     }
