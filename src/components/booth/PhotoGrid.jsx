@@ -35,7 +35,7 @@ function PhotoGrid({ photos, onRetake }) {
               <img
                 src={photo}
                 alt={`Photo ${index + 1}`}
-                className="w-28 h-28 object-cover rounded-xl border-2 border-pink-light"
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover rounded-xl border-2 border-pink-light"
               />
               <div className="absolute -top-2 -left-2 w-6 h-6 pink-gradient rounded-full flex items-center justify-center text-white text-xs font-bold">
                 {index + 1}
